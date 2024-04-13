@@ -36,8 +36,10 @@ class OrderBook:
         balance_changes = []
         for order in self.sell_orders:
             balance_changes.append(BalanceChange(order.user_id, -order.amount, 'UAH'))
+            balance_changes.append(BalanceChange(order.user_id, order.amount*order.price, 'USD'))
         for order in self.buy_orders:
-            balance_changes.append(BalanceChange(order.user_id, order.amount, 'USD'))
+            balance_changes.append(BalanceChange(order.user_id, order.amount, 'UAH'))
+            balance_changes.append(BalanceChange(order.user_id, -order.amount*order.price, 'USD'))
         return balance_changes
 
     def __str__(self):

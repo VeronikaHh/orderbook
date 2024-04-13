@@ -4,8 +4,8 @@ from order import Order
 
 def main():
     order_book = OrderBook()
-    order_book.add_order(Order(1, 100, 25, 'sell'))
-    order_book.add_order(Order(2, 50, 30, 'buy'))
+    order_book.add_order(Order(1, 100, 0.025, 'sell'))
+    order_book.add_order(Order(2, 50, 0.026, 'buy'))
     print(str(order_book))
     order_book.match_orders()
     print(str(order_book))

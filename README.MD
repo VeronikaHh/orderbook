@@ -1,7 +1,6 @@
 # Orderbook
 To run the program you shoud install Python on your PC and then run command:
 ```console
-pip freeze > requirements.txt
 pip install -r requirements.txt
 ```
 Then you can run main.py using command:

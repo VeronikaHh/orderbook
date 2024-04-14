@@ -1,8 +1,5 @@
 # Orderbook
-To run the program you shoud install Python on your PC and then run command:
-```console
-pip install -r requirements.txt
-```
+To run the program you shoud install Python 3.10 on your PC.
 Then you can run main.py using command:
 ```console
 python main.py

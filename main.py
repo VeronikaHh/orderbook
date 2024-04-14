@@ -1,11 +1,11 @@
-import logging
 from orderbook import OrderBook
 from order import Order
+from constants import Side
 
 def main() -> None:
     order_book = OrderBook()
-    order_book.add_order(Order(1, 100, 0.025, 'sell'))
-    order_book.add_order(Order(2, 50, 0.026, 'buy'))
+    order_book.add_order(Order(user_id=1, amount=100, price=0.025, side=Side.SELL))
+    order_book.add_order(Order(user_id=2, amount=50, price=0.026, side=Side.BUY))
     print(str(order_book))
     order_book.match_orders()
     print(str(order_book))

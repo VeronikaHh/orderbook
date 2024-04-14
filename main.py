@@ -2,7 +2,7 @@ import logging
 from orderbook import OrderBook
 from order import Order
 
-def main():
+def main() -> None:
     order_book = OrderBook()
     order_book.add_order(Order(1, 100, 0.025, 'sell'))
     order_book.add_order(Order(2, 50, 0.026, 'buy'))

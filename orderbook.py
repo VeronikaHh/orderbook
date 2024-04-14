@@ -2,11 +2,11 @@ import heapq
 from balance_change import BalanceChange
 
 class OrderBook:
-    def __init__(self):
+    def __init__(self) -> None:
         self.sell_orders = []
         self.buy_orders = []
 
-    def add_order(self, order):
+    def add_order(self, order) -> None:
         if order.side == 'sell':
             self.sell_orders.append(order)
             self.sell_orders.sort(key=lambda x: x.price)
@@ -14,7 +14,7 @@ class OrderBook:
             self.buy_orders.append(order)
             self.buy_orders.sort(key=lambda x: x.price, reverse=True)
 
-    def match_orders(self):
+    def match_orders(self) -> None:
         while self.sell_orders and self.buy_orders:
             top_sell = self.sell_orders[0]
             top_buy = self.buy_orders[0]
@@ -32,7 +32,7 @@ class OrderBook:
                 top_sell.amount -= buy_amount
                 self.buy_orders.pop(0)
 
-    def get_balance_changes(self):
+    def get_balance_changes(self) -> list:
         balance_changes = []
         for order in self.sell_orders:
             balance_changes.append(BalanceChange(order.user_id, -order.amount, 'UAH'))
@@ -42,7 +42,7 @@ class OrderBook:
             balance_changes.append(BalanceChange(order.user_id, -order.amount*order.price, 'USD'))
         return balance_changes
 
-    def __str__(self):
+    def __str__(self) -> str:
         sell_str = 'Sell orders:\n'
         for order in self.sell_orders:
             sell_str += f'  {order}\n'
